@@ -1,0 +1,19 @@
+{
+  "name": "gis",
+  "version": "1.0.0",
+  "description": "gis",
+  "main": "server.js",
+  "git": "https://github.com/sedatcans/imdbdb.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.3.12",
+    "express": "^4.12.2",
+    "jade": "^1.9.2",
+    "mongoose": "^3.8.24",
+    "nodemon": "^1.3.7"
+  }
+}

@@ -1,0 +1,4 @@
+npm init
+npm install --save nodemon express jade mongoose bower
+node_modules\.bin\bower init
+node_modules\.bin\bower --save install jquery knockout leaflet
