@@ -1,30 +1,30 @@
 /**
  * Created by TTSSONAT on 06/03/2015.
  */
-function mapView(){
+function MapView(){
     var self =this;
     self.mapId=ko.observable();
     self.maps=ko.observableArray([]);
-    self.init=function()
-    {
+    self.init=function() {
         $.ajax({
             method:"GET",
-            url:"http:// localhost:8001/maps",
+            url:"http://localhost:8001/maps",
             success:function(maps)
             {
                 self.maps(maps);
             }
-        });
-        self.view=function()
+        })
+    };
+    self.view=function()
         {
             console.log('clicked!!');
         };
-    }
-}
-var viewModel =new MapView();
 
-var viewModel = new ImdbViewModel();
+}
+
+
+var viewModel =new MapView();
 $('document').ready(function(){
     ko.applyBindings(viewModel);
     viewModel.init();
-});
+})
