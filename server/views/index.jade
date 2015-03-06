@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        title Map Page
+        script(type="text/javascript", src="/vendor/jquery/dist/jquery.min.js")
+        script(type="text/javascript", src="/vendor/knockout/dist/knockout.js")
+    body
+        form
+            table
+                tr
+                    td Map:
+                    td
+                        select(data-bind="options: maps,optionsText:'name',optionsValue:'_id', value: mapId")
+                        input(type="submit", value="View", data-bind="click: view")
+
+
+                    tr
+                    td To:
+                    td
+                        input(type="number", min="1900", max="2015", data-bind="value: toYear")
+                tr
+                    td Genre:
+                    td
+                        select(data-bind="options: genres, value: genre")
+                tr
+                    td
+                    td
+                        input(type="submit", value="Search", data-bind="click: search")
+            table
+                thead
+                    tr
+                        th Title
+                        th Year
+                        th Imdb
+                tbody(data-bind="foreach: movies")
+                    tr
+                        td(data-bind="text: title")
+                        td(data-bind="text: year")
+                        td(data-bind="text: genre")

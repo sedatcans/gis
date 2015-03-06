@@ -41,6 +41,10 @@ app.get('/map/:id', function(req, res){
 });
 
 
+app.get('/', function(req, res){
+    res.render('index');
+});
+
 var port = 8001;
 app.listen(port);
 console.log('Server is running...');
