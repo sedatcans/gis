@@ -1,15 +1,56 @@
 doctype html
 html
-    head
-        title Map Page
-        script(type="text/javascript", src="/vendor/jquery/dist/jquery.min.js")
-        script(type="text/javascript", src="/vendor/knockout/dist/knockout.js")
-        script(type="text/javascript", src="/js/map.js")
-    body
-        form
-            table
-                tr
-                    td Map:
-                    td
-                        select(data-bind="options: maps,optionsText:'name',optionsValue:'_id', value: mapId")
-                        input(type="submit", value="View", data-bind="click: view")
+   head
+      link(rel="stylesheet",href="/vendor/leaflet/dist/leaflet.css")
+      link(rel="stylesheet",href="/vendor/leaflet.draw/dist/leaflet.draw.css")
+      script(type='text/javascript',src='/vendor/jquery/dist/jquery.min.js')
+      script(type='text/javascript',src='/vendor/knockout/dist/knockout.js')
+      script(type='text/javascript',src='/vendor/leaflet/dist/leaflet.js')
+      script(type='text/javascript',src='/vendor/leaflet.draw/dist/leaflet.draw.js')
+      script(type='text/javascript',src='/js/ko-map.js')
+      script(type='text/javascript',src='/js/map.js')
+   body
+      table
+         tbody
+            tr
+               td  Map:
+               td
+                  select(data-bind="options: maps, optionsText: 'description', optionsValue: 'name', value: name")
+                  button(data-bind="click: show") Show map
+      table
+         tbody
+            tr
+               td CRS:
+               td
+                  input(type="text",data-bind="value: map.crs")
+            tr
+               td WMS Url:
+               td
+                  input(type="text",data-bind="value: map.wmsUrl")
+            tr
+               td WMS Layer:
+               td
+                  input(type="text",data-bind="value: map.wmsLayer")
+            tr
+               td minx:
+               td
+                  input(type="number",data-bind="value: map.minx")
+            tr
+               td miny:
+               td
+                  input(type="number",data-bind="value: map.miny")
+            tr
+               td maxx:
+               td
+                  input(type="number",data-bind="value: map.maxx")
+            tr
+               td maxy:
+               td
+                  input(type="number",data-bind="value: map.maxy")
+            tr
+               td Zoom:
+               td
+                  input(type="range",min="1",max="12",data-bind="value: map.zoom")
+                  span(data-bind="text: map.zoom")
+   div(id="container")
+      div(id="map",data-bind="drawmap: $data.map",style="width: 1024px; height: 720px")
